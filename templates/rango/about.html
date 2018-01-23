@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+
+<html>
+
+	<head>
+		<title>About</title>
+	</head>
+
+	<body>
+
+		<div>
+		  <a href="/rango/">Index</a><br />
+	<strong>{{ boldmessage }}</strong>
+</div>
+<div>
+This page has been put together by Rosa.<br>
+
+		<img src="{% static "images/dog.jpg" %}" alt="Picture of a Lovely Dog" />
+		<br>
+		<img src="{{ MEDIA_URL }}cat.jpg" alt="Picture of a Blue-Eyed Cat" />
+
+
+</div>
+	</body>
+
+</html>
