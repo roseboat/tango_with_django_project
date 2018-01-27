@@ -113,6 +113,7 @@ PASSWORD_HASHERS = [
 # Where you'd like to redirect users that aren't logged in
 LOGIN_URL = '/rango/login/'
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
