@@ -63,18 +63,16 @@ def index(request):
     return response
     
 def about(request):
-
+    context_dict = {}
     # checking test cookie
     if request.session.test_cookie_worked():
         print("TEST COOKIE WORKED!")
         request.session.delete_test_cookie()
 
-    visitor_cookie_handler(request)
-    viewcount = request.session.get('visits',0)
-    context_dict['views'] = viewcount
+    visitcount = request.session.get('visits', 0)
+    context_dict['visit_count'] = visitcount
     
-    response = render(request, 'rango/about.html', context=context_dict)
-    return response
+    return render(request, 'rango/about.html', context=context_dict)
 
 @login_required
 def add_category(request):
@@ -223,6 +221,7 @@ def get_server_side_cookie(request, cookie, default_val=None):
 
 # updated the function definition
 def visitor_cookie_handler(request):
+    
     visits = int(get_server_side_cookie(request, 'visits', '1'))
 
     last_visit_cookie = get_server_side_cookie(request,
